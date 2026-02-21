@@ -48,11 +48,11 @@ const projectsData = [
   },
   {
     id: 5,
-    title: "Weather Dashboard",
+    title: "Pilah Sampah Game",
     description:
       "Dashboard cuaca real-time dengan visualisasi data menggunakan chart dan peta interaktif.",
-    image: "https://placehold.co/600x400/1a1a1a/8b5cf6?text=Weather",
-    tags: ["React", "OpenWeather API", "Chart.js"],
+    image: "https://placehold.co/600x400/1a1a1a/8b5cf6?text=PILAH SAMPAH",
+    tags: ["Unity", "C#"],
     liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/username/project",
     status: "Completed",
