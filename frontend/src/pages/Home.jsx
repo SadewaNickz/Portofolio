@@ -19,15 +19,13 @@ export default function Home() {
           Hi, I'm <span className="gradient-text">Bagus Sadewa</span>
           <br />
           <span className="text-gray-400 text-4xl md:text-5xl font-medium">
-            Full Stack Developer
+            Full Stack & Game Developer
           </span>
         </h1>
 
         {/* Description */}
         <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-          Saya passionate dalam membangun web apps yang performant dan
-          beautiful. Spesialisasi di React, Node.js, dan modern cloud
-          architecture.
+          Seorang yang mempunyai passion di dunia teknologi, khususnya dalam pengembangan web, mobile dan pengembangan game yang indah. Berfokus pada Laravel, React dan Unity untuk menciptakan solusi digital yang inovatif dan efisien.
         </p>
 
         {/* CTA Buttons */}
