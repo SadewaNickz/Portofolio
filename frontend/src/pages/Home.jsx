@@ -11,7 +11,7 @@ export default function Home() {
                         rounded-full px-4 py-1.5 mb-8"
         >
           <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-          <span className="text-sm text-gray-300">Available for work</span>
+          <span className="text-sm text-gray-300">Need a work please </span>
         </div>
 
         {/* Heading */}
