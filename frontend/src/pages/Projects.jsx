@@ -33,7 +33,7 @@ const projectsData = [
     tags: ["React", "Node.js", "MongoDB", "Tailwind"],
     liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/Portofolio",
-    status: "Completed",
+    status: "On Progress",
   },
   {
     id: 4,
