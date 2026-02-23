@@ -43,7 +43,7 @@ const projectsData = [
     image: "https://placehold.co/600x400/1a1a1a/8b5cf6?text=LYNX",
     tags: ["Unity", "C#"],
     liveUrl: "https://project-demo.com",
-    githubUrl: "https://github.com/username/project",
+    githubUrl: "https://github.com/SadewaNickz/LYNX",
     status: "Completed",
   },
   {
@@ -152,12 +152,12 @@ function ProjectCard({ project, index }) {
           ))}
         </div>
 
-        <div className="flex gap-3 mt-auto">        
+        <div className="mt-auto">        
             <a href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-outline text-sm flex-1 text-center" a/>
-          <a>
+            className="btn-outline text-sm flex-1 text-center"
+          >
             GitHub
           </a>
         </div>
