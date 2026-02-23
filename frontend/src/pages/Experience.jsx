@@ -5,25 +5,31 @@ import { Link } from "react-router-dom";
 const experiences = [
   {
     id: 1,
-    company: "PT. Contoh Perusahaan",
-    role: "Full Stack Developer",
-    period: "Jan 2023 - Sekarang",
+    company: "Panasonic Gobel Indonesia Service Center",
+    role: " Intern Technician Service ",
+    period: "June 2022 - July 2022",
+    startDate: "2022-06-01", // untuk sorting
     description:
-      "Membangun dan maintain aplikasi web skala enterprise dengan tech stack React dan Node.js.",
-    tech: ["React", "Node.js", "PostgreSQL", "Docker"],
+      "Internship 1 bulan belajar servis elektronik rumah tangga seperti TV, AC, kulkas, dan mesin cuci. Fokus pada troubleshooting, perbaikan hardware, dan customer service.",
+    tech: ["Technician"],
     blogSlug: "belajar-dari-perusahaan-pertama", // slug blog terkait
   },
   {
     id: 2,
-    company: "Startup XYZ",
-    role: "Frontend Developer",
-    period: "Jun 2022 - Des 2022",
+    company: "PT. Telkom Indonesia",
+    role: "Intern Maintenance & Werehouse Staff",
+    period: "July 2022 - Des 2022",
+    startDate: "2022-07-01", // untuk sorting
     description:
-      "Internship 6 bulan membangun landing page dan dashboard admin.",
-    tech: ["Vue.js", "Tailwind", "Firebase"],
+      "Internship 6 bulan belajar maintenance jaringan dan perangkat telekomunikasi, serta manajemen inventory di warehouse.",
+    tech: ["Network", "SAP"],
     blogSlug: "pengalaman-internship-startup",
   },
-];
+]
+
+const sortedExperiences = [...experiences].sort((a, b) => 
+  b.startDate.localeCompare(a.startDate))
+;
 
 export default function Experience() {
   return (
@@ -43,7 +49,7 @@ export default function Experience() {
         <div className="absolute left-0 top-0 bottom-0 w-px bg-dark-700 ml-4" />
 
         <div className="space-y-10">
-          {experiences.map((exp, index) => (
+          {sortedExperiences.map((exp, index) => (
             <div
               key={exp.id}
               className="relative pl-12 animate-slide-up"
