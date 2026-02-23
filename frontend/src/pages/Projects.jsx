@@ -29,7 +29,7 @@ const projectsData = [
     title: "Portfolio Blog",
     description:
       "Website portfolio dan blog personal dengan CMS sederhana untuk nulis artikel.",
-    image: "https://placehold.co/600x400/1a1a1a/6366f1?text=Portfolio",
+    image: "https://placehold.co/600x400/1a1a1a/6366f1?text=PORTOFOLIO",
     tags: ["React", "Node.js", "MongoDB", "Tailwind"],
     liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/Portofolio",
