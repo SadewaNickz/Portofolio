@@ -8,7 +8,7 @@ const projectsData = [
     description:
       "Aplikasi percetakan online dengan fitur cart, payment gateway, dan admin dashboard. Dibangun dengan React dan Node.js.",
     image: "https://placehold.co/600x400/1a1a1a/6366f1?text=CETAKU",
-    tags: ["Javascript", "Tailwind", "PHP", "Midtrans", "MySQL", "Laravel"],
+    tags: ["JavaScript", "Tailwind", "PHP", "Midtrans", "MySQL", "Laravel"],
     liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/Cetaku",
     status: "Completed",
@@ -30,7 +30,7 @@ const projectsData = [
     description:
       "Website portfolio dan blog personal dengan CMS sederhana untuk nulis artikel.",
     image: "https://placehold.co/600x400/1a1a1a/6366f1?text=PORTOFOLIO",
-    tags: ["React", "Node.js", "MongoDB", "Tailwind"],
+    tags: ["React", "Node.js", "MongoDB", "Tailwind", "JavaScript"],
     liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/Portofolio",
     status: "On Progress",
