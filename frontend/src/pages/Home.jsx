@@ -44,7 +44,7 @@ export default function Home() {
                         px-4 py-1.5 mb-6 -rotate-1"
         >
           <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-          <span className="text-sm text-muted">Need an internship please </span>
+          <span className="text-sm font-semibold text-accent">on Internship </span>
         </div>
 
         {/* Card foto profil */}
