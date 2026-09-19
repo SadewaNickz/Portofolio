@@ -236,30 +236,6 @@ export default function GitHubContribution() {
           ))}
           <span>Banyak</span>
         </div>
-
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5">
-          <div className="bg-raised rounded-lg p-4 text-center border border-line">
-            <p className="text-2xl font-display text-accent font-bold">
-              {data.totalContributions.toLocaleString()}
-            </p>
-            <p className="text-muted text-xs mt-1">Total Kontribusi</p>
-          </div>
-          <div className="bg-raised rounded-lg p-4 text-center border border-line">
-            <p className="text-2xl font-display text-fg font-bold">
-              {data.stats.currentStreak}
-              <span className="text-sm text-muted ml-1">hari</span>
-            </p>
-            <p className="text-muted text-xs mt-1">Streak Saat Ini</p>
-          </div>
-          <div className="bg-raised rounded-lg p-4 text-center border border-line">
-            <p className="text-2xl font-display text-fg font-bold">
-              {data.stats.longestStreak}
-              <span className="text-sm text-muted ml-1">hari</span>
-            </p>
-            <p className="text-muted text-xs mt-1">Streak Terpanjang</p>
-          </div>
-        </div>
       </div>
     </div>
   );
