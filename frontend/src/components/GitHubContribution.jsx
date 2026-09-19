@@ -2,7 +2,11 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+// Di production (Vercel), gunakan /api (serverless function)
+// Di local dev, gunakan backend Express di localhost:5000
+const API_URL = import.meta.env.DEV
+  ? (import.meta.env.VITE_API_URL || "http://localhost:5000/api")
+  : "/api";
 
 const MONTHS = [
   "Jan", "Feb", "Mar", "Apr", "Mei", "Jun",
