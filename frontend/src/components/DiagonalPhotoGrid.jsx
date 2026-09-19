@@ -12,7 +12,7 @@ const projectImages = [
   "https://placehold.co/300x200/141414/e60012?text=DETEKSI+PARKIR",
 ];
 
-const ROWS = 20;
+const ROWS = 30;
 const COLS = 10;
 const CELL_W = 150;
 const CELL_H = 110;
@@ -30,10 +30,10 @@ export default function DiagonalPhotoGrid() {
       <div
         className="absolute"
         style={{
-          top: "-100%",
-          left: "-80%",
-          width: "300%",
-          height: "400%",
+          top: "-100vmax",
+          left: "-100vmax",
+          width: "300vmax",
+          height: "300vmax",
           transform: "rotate(-20deg)",
         }}
       >
