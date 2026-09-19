@@ -19,16 +19,30 @@ export default function Navbar() {
     setMenuOpen(false);
   }, [location.pathname]);
 
-  // Sembunyikan saat scroll ke bawah, tampilkan saat scroll ke atas
+  // Tampilkan saat ada gerakan (mouse/touch/scroll), sembunyikan setelah diam 2.5 detik
   useEffect(() => {
-    let lastY = 0;
-    const handleScroll = () => {
-      const y = window.scrollY;
-      setVisible(y < 50 || y < lastY);
-      lastY = y;
+    let timer;
+    const show = () => {
+      setVisible(true);
+      clearTimeout(timer);
+      timer = setTimeout(() => setVisible(false), 500);
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // Tampilkan awalnya, mulai timer
+    show();
+
+    window.addEventListener("mousemove", show, { passive: true });
+    window.addEventListener("scroll", show, { passive: true });
+    window.addEventListener("touchstart", show, { passive: true });
+    window.addEventListener("touchmove", show, { passive: true });
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("mousemove", show);
+      window.removeEventListener("scroll", show);
+      window.removeEventListener("touchstart", show);
+      window.removeEventListener("touchmove", show);
+    };
   }, []);
 
   return (
