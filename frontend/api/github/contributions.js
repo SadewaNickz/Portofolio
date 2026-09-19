@@ -1,6 +1,6 @@
 // frontend/api/github/contributions.js
 // Vercel Serverless Function — proxy ke GitHub GraphQL API
-const axios = require("axios");
+import axios from "axios";
 
 // Simple in-memory cache (5 menit)
 let cache = { data: null, timestamp: 0 };
@@ -28,7 +28,7 @@ const CONTRIBUTION_QUERY = `
   }
 `;
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   // CORS headers
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET");
@@ -133,4 +133,4 @@ module.exports = async function handler(req, res) {
     console.error("GitHub API error:", error.message);
     res.status(500).json({ error: "Gagal mengambil data kontribusi GitHub." });
   }
-};
+}
