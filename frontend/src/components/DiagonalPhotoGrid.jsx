@@ -30,10 +30,10 @@ export default function DiagonalPhotoGrid() {
       <div
         className="absolute"
         style={{
-          top: "-100vmax",
+          top: "-120vmax",
           left: "-100vmax",
           width: "300vmax",
-          height: "300vmax",
+          height: "400vmax",
           transform: "rotate(-20deg)",
         }}
       >
