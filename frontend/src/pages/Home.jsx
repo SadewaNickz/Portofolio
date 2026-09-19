@@ -1,6 +1,7 @@
 // frontend/src/pages/Home.jsx
 import { Link } from "react-router-dom";
 import Splatter from "../components/Splatter";
+import GitHubContribution from "../components/GitHubContribution";
 
 const marqueeItems = [
   "Full Stack Developer",
@@ -95,6 +96,9 @@ export default function Home() {
             ))}
           </div>
         </div>
+
+        {/* GitHub Contribution Graph */}
+        <GitHubContribution />
 
         {/* Marquee band */}
         <div className="mt-10 sm:mt-16 w-full min-w-0 overflow-hidden border-y-2 border-accent bg-surface/60 py-2 -rotate-1">
