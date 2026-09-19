@@ -6,6 +6,13 @@
 @tailwind utilities;
 
 @layer base {
+  html,
+  body,
+  #root {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   body {
     @apply bg-base text-fg font-sans antialiased;
     min-height: 100vh;
@@ -128,16 +135,6 @@
     transition: transform 0.38s cubic-bezier(0.2, 1.2, 0.3, 1);
     z-index: 0;
   }
-  .p5-btn:hover,
-  .p5-btn:focus-visible {
-    color: #ffffff;
-    transform: skewX(-6deg) translate(-3px, -3px) rotate(-1deg) scale(1.04);
-    box-shadow: 5px 5px 0 0 #f5f5f5;
-  }
-  .p5-btn:hover::before,
-  .p5-btn:focus-visible::before {
-    transform: translateX(0);
-  }
   .p5-btn:active {
     transform: skewX(-6deg) translate(2px, 2px) scale(0.98);
     box-shadow: 1px 1px 0 0 #f5f5f5;
@@ -155,11 +152,6 @@
   }
   .p5-btn-solid::before {
     background: #f5f5f5;
-  }
-  .p5-btn-solid:hover,
-  .p5-btn-solid:focus-visible {
-    color: #0a0a0a;
-    box-shadow: 5px 5px 0 0 #e60012;
   }
   .p5-btn-solid:active {
     box-shadow: 1px 1px 0 0 #e60012;
@@ -188,37 +180,57 @@
     transition: transform 0.45s cubic-bezier(0.2, 1.2, 0.3, 1);
     z-index: 0;
   }
-  .p5-card:hover,
-  .p5-card:focus-within {
-    transform: translate(-3px, -3px);
-    box-shadow: 6px 6px 0 0 #f5f5f5;
-    border-color: #e60012;
-  }
-  .p5-card:hover::before,
-  .p5-card:focus-within::before {
-    transform: translateX(0);
-  }
   .p5-card > .p5-content {
     @apply relative z-10 transition-colors duration-300;
   }
-  .p5-card:hover > .p5-content,
-  .p5-card:focus-within > .p5-content {
-    color: #ffffff;
-  }
-  .p5-card:hover > .p5-content :is(h1, h2, h3, h4, h5, p, span, time, a),
-  .p5-card:focus-within > .p5-content :is(h1, h2, h3, h4, h5, p, span, time, a) {
-    color: inherit;
-  }
-  .p5-card:hover > .p5-content .chip,
-  .p5-card:focus-within > .p5-content .chip {
-    border-color: rgba(255, 255, 255, 0.5);
-    background: rgba(0, 0, 0, 0.2);
-    color: #ffffff;
-  }
-  .p5-card:hover > .p5-content .icon-box,
-  .p5-card:focus-within > .p5-content .icon-box {
-    border-color: rgba(255, 255, 255, 0.6);
-    color: #ffffff;
+
+  /* Efek hover hanya untuk perangkat ber-pointer (mouse/trackpad).
+     Mencegah efek "nyangkut" saat disentuh di layar sentuh. */
+  @media (hover: hover) and (pointer: fine) {
+    .p5-btn:hover,
+    .p5-btn:focus-visible {
+      color: #ffffff;
+      transform: skewX(-6deg) translate(-3px, -3px) rotate(-1deg) scale(1.04);
+      box-shadow: 5px 5px 0 0 #f5f5f5;
+    }
+    .p5-btn:hover::before,
+    .p5-btn:focus-visible::before {
+      transform: translateX(0);
+    }
+    .p5-btn-solid:hover,
+    .p5-btn-solid:focus-visible {
+      color: #0a0a0a;
+      box-shadow: 5px 5px 0 0 #e60012;
+    }
+    .p5-card:hover,
+    .p5-card:focus-within {
+      transform: translate(-3px, -3px);
+      box-shadow: 6px 6px 0 0 #f5f5f5;
+      border-color: #e60012;
+    }
+    .p5-card:hover::before,
+    .p5-card:focus-within::before {
+      transform: translateX(0);
+    }
+    .p5-card:hover > .p5-content,
+    .p5-card:focus-within > .p5-content {
+      color: #ffffff;
+    }
+    .p5-card:hover > .p5-content :is(h1, h2, h3, h4, h5, p, span, time, a),
+    .p5-card:focus-within > .p5-content :is(h1, h2, h3, h4, h5, p, span, time, a) {
+      color: inherit;
+    }
+    .p5-card:hover > .p5-content .chip,
+    .p5-card:focus-within > .p5-content .chip {
+      border-color: rgba(255, 255, 255, 0.5);
+      background: rgba(0, 0, 0, 0.2);
+      color: #ffffff;
+    }
+    .p5-card:hover > .p5-content .icon-box,
+    .p5-card:focus-within > .p5-content .icon-box {
+      border-color: rgba(255, 255, 255, 0.6);
+      color: #ffffff;
+    }
   }
 
   /* ---------- Konten markdown blog ---------- */

@@ -23,7 +23,7 @@ export default function Blog() {
     );
 
   return (
-    <div className="max-w-4xl mx-auto px-6 pt-32 pb-20">
+    <div className="max-w-4xl mx-auto px-6 pt-24 sm:pt-32 pb-16 sm:pb-20">
       <div className="mb-12 animate-slide-up">
         <h1 className="p5-title text-4xl mb-4 text-fg">
           Blog <span className="text-accent">Posts</span>
@@ -55,7 +55,7 @@ export default function Blog() {
                   {blog.excerpt}
                 </p>
 
-                <div className="flex items-center justify-between">
+                <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="text-muted text-xs">
                     {new Date(blog.createdAt).toLocaleDateString("id-ID", {
                       year: "numeric",

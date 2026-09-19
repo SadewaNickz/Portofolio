@@ -41,7 +41,7 @@ export default function Contact() {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto px-6 pt-32 pb-20">
+    <div className="max-w-4xl mx-auto px-6 pt-24 sm:pt-32 pb-16 sm:pb-20">
       <div className="mb-12 animate-slide-up text-center">
         <h1 className="p5-title text-4xl md:text-5xl mb-4 text-fg">
           Hubungi <span className="text-accent">Saya</span>
@@ -59,7 +59,7 @@ export default function Contact() {
             href={contact.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="card p5-card group flex flex-col items-center text-center h-64 p-8 animate-slide-up"
+            className="card p5-card group flex flex-col items-center text-center min-h-[16rem] p-8 animate-slide-up"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <div className="p5-content flex flex-col items-center justify-between h-full w-full">

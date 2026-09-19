@@ -32,7 +32,7 @@ export default function BlogDetail() {
     );
 
   return (
-    <div className="max-w-3xl mx-auto px-6 pt-32 pb-20">
+    <div className="max-w-3xl mx-auto px-6 pt-24 sm:pt-32 pb-16 sm:pb-20">
       <Link to="/blog" className="p5-btn px-4 py-2 text-xs mb-8">
         <span className="p5-label">← Kembali ke Blog</span>
       </Link>

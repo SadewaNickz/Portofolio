@@ -13,7 +13,7 @@ const marqueeItems = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 pt-20 relative overflow-hidden">
+    <div className="min-h-screen w-full flex items-center justify-center px-6 pt-24 pb-16 relative overflow-hidden">
       {/* Splatter dekoratif */}
       <Splatter
         className="w-28 h-28 -top-4 -left-2 md:w-44 md:h-44"
@@ -35,7 +35,7 @@ export default function Home() {
         className="speed-lines pointer-events-none absolute inset-y-0 left-0 w-16 opacity-10"
       />
 
-      <div className="max-w-4xl mx-auto text-center animate-slide-up relative">
+      <div className="w-full min-w-0 max-w-4xl mx-auto text-center animate-slide-up relative">
         {/* Badge */}
         <div
           className="inline-flex items-center gap-2 bg-surface border-2 border-accent
@@ -47,16 +47,16 @@ export default function Home() {
 
         {/* Heading */}
         <h1 className="mb-6 leading-tight">
-          <span className="p5-title block text-5xl md:text-7xl text-fg">
+          <span className="p5-title block text-4xl sm:text-5xl md:text-7xl text-fg">
             Hi, I'm <span className="text-accent">Bagus Sadewa</span>
           </span>
-          <span className="block text-muted text-2xl md:text-4xl font-sans font-semibold mt-3">
+          <span className="block text-muted text-xl sm:text-2xl md:text-4xl font-sans font-semibold mt-3">
             Full Stack & Game Developer
           </span>
         </h1>
 
         {/* Description */}
-        <p className="text-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-muted text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
           Seorang yang mempunyai passion di dunia teknologi, khususnya dalam
           pengembangan web, mobile dan pengembangan game yang indah. Berfokus
           pada Laravel, React dan Unity untuk menciptakan solusi digital yang
@@ -74,7 +74,7 @@ export default function Home() {
         </div>
 
         {/* Tech Stack */}
-        <div className="mt-20">
+        <div className="mt-12 sm:mt-20">
           <p className="text-muted text-sm mb-4 font-display tracking-widest">
             TECH STACK
           </p>
@@ -97,7 +97,7 @@ export default function Home() {
         </div>
 
         {/* Marquee band */}
-        <div className="mt-16 overflow-hidden border-y-2 border-accent bg-surface/60 py-2 -rotate-1">
+        <div className="mt-10 sm:mt-16 w-full min-w-0 overflow-hidden border-y-2 border-accent bg-surface/60 py-2 -rotate-1">
           <div className="flex w-max animate-marquee gap-8 whitespace-nowrap font-display text-sm text-accent">
             {[...marqueeItems, ...marqueeItems].map((item, i) => (
               <span key={i} className="flex items-center gap-8">

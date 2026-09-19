@@ -33,7 +33,7 @@ const sortedExperiences = [...experiences].sort((a, b) =>
 
 export default function Experience() {
   return (
-    <div className="max-w-4xl mx-auto px-6 pt-32 pb-20">
+    <div className="max-w-4xl mx-auto px-6 pt-24 sm:pt-32 pb-16 sm:pb-20">
       <div className="mb-12 animate-slide-up">
         <h1 className="p5-title text-4xl mb-4 text-fg">
           Work <span className="text-accent">Experience</span>
@@ -53,7 +53,7 @@ export default function Experience() {
           {sortedExperiences.map((exp, index) => (
             <div
               key={exp.id}
-              className="relative pl-12 animate-slide-up"
+              className="relative pl-10 sm:pl-12 animate-slide-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Dot timeline */}
