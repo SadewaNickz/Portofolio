@@ -1,30 +1,62 @@
 // frontend/src/pages/Home.jsx
 import { Link } from "react-router-dom";
+import Splatter from "../components/Splatter";
+
+const marqueeItems = [
+  "Full Stack Developer",
+  "Game Developer",
+  "React",
+  "Unity",
+  "Laravel",
+  "C#",
+];
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 pt-20">
-      <div className="max-w-4xl mx-auto text-center animate-slide-up">
+    <div className="min-h-screen flex items-center justify-center px-6 pt-20 relative overflow-hidden">
+      {/* Splatter dekoratif */}
+      <Splatter
+        className="w-28 h-28 -top-4 -left-2 md:w-44 md:h-44"
+        opacity={0.18}
+      />
+      <Splatter
+        className="w-16 h-16 bottom-10 right-4 md:w-28 md:h-28"
+        color="#f5f5f5"
+        opacity={0.08}
+      />
+
+      {/* Speed lines dekoratif */}
+      <div
+        aria-hidden="true"
+        className="speed-lines pointer-events-none absolute inset-y-0 right-0 w-32 md:w-56 opacity-20"
+      />
+      <div
+        aria-hidden="true"
+        className="speed-lines pointer-events-none absolute inset-y-0 left-0 w-16 opacity-10"
+      />
+
+      <div className="max-w-4xl mx-auto text-center animate-slide-up relative">
         {/* Badge */}
         <div
-          className="inline-flex items-center gap-2 bg-accent-primary/10 border border-accent-primary/20 
-                        rounded-full px-4 py-1.5 mb-8"
+          className="inline-flex items-center gap-2 bg-surface border-2 border-accent
+                        px-4 py-1.5 mb-8 -rotate-1"
         >
-          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-          <span className="text-sm text-gray-300">Need an internship please </span>
+          <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+          <span className="text-sm text-muted">Need an internship please </span>
         </div>
 
         {/* Heading */}
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-          Hi, I'm <span className="gradient-text">Bagus Sadewa</span>
-          <br />
-          <span className="text-gray-400 text-4xl md:text-5xl font-medium">
+        <h1 className="mb-6 leading-tight">
+          <span className="p5-title block text-5xl md:text-7xl text-fg">
+            Hi, I'm <span className="text-accent">Bagus Sadewa</span>
+          </span>
+          <span className="block text-muted text-2xl md:text-4xl font-sans font-semibold mt-3">
             Full Stack & Game Developer
           </span>
         </h1>
 
         {/* Description */}
-        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
           Seorang yang mempunyai passion di dunia teknologi, khususnya dalam
           pengembangan web, mobile dan pengembangan game yang indah. Berfokus
           pada Laravel, React dan Unity untuk menciptakan solusi digital yang
@@ -32,18 +64,20 @@ export default function Home() {
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/projects" className="btn-primary text-center">
-            Lihat Projects →
+        <div className="flex flex-col sm:flex-row gap-5 justify-center">
+          <Link to="/projects" className="p5-btn p5-btn-solid px-7 py-3 text-sm">
+            <span className="p5-label">Lihat Projects →</span>
           </Link>
-          <Link to="/contact" className="btn-outline text-center">
-            Hubungi Saya
+          <Link to="/contact" className="p5-btn px-7 py-3 text-sm">
+            <span className="p5-label">Hubungi Saya</span>
           </Link>
         </div>
 
         {/* Tech Stack */}
         <div className="mt-20">
-          <p className="text-gray-500 text-sm mb-4">Tech Stack</p>
+          <p className="text-muted text-sm mb-4 font-display tracking-widest">
+            TECH STACK
+          </p>
           <div className="flex flex-wrap gap-3 justify-center">
             {[
               "React",
@@ -55,13 +89,20 @@ export default function Home() {
               "Laravel",
               "C#",
             ].map((tech) => (
-              <span
-                key={tech}
-                className="bg-dark-800 border border-dark-700 
-                                         text-gray-300 text-sm px-4 py-1.5 rounded-full
-                                         hover:border-accent-primary/50 transition-colors"
-              >
-                {tech}
+              <span key={tech} className="p5-btn px-4 py-1.5 text-[11px]">
+                <span className="p5-label">{tech}</span>
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Marquee band */}
+        <div className="mt-16 overflow-hidden border-y-2 border-accent bg-surface/60 py-2 -rotate-1">
+          <div className="flex w-max animate-marquee gap-8 whitespace-nowrap font-display text-sm text-accent">
+            {[...marqueeItems, ...marqueeItems].map((item, i) => (
+              <span key={i} className="flex items-center gap-8">
+                {item}
+                <span className="text-fg">★</span>
               </span>
             ))}
           </div>

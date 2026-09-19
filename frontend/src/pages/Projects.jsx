@@ -7,7 +7,7 @@ const projectsData = [
     title: "Cetaku",
     description:
       "Aplikasi percetakan online dengan fitur cart, payment gateway, dan admin dashboard. Dibangun dengan React dan Node.js.",
-    image: "https://placehold.co/600x400/1a1a1a/6366f1?text=CETAKU",
+    image: "https://placehold.co/600x400/141414/e60012?text=CETAKU",
     tags: ["JavaScript", "Tailwind", "PHP", "Midtrans", "MySQL", "Laravel"],
     liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/Cetaku",
@@ -18,7 +18,7 @@ const projectsData = [
     title: "Sitama",
     description:
       "Aplikasi manajemen tugas akhir mahasiswa dengan fitur upload dokumen, notifikasi dan penjadwalan bimbingan. Dibangun dengan Flutter untuk mobile dan Laravel untuk backend.",
-    image: "https://placehold.co/600x400/1a1a1a/8b5cf6?text=SITAMA",
+    image: "https://placehold.co/600x400/141414/e60012?text=SITAMA",
     tags: ["PHP", "Flutter", "MySQL", "Tailwind", "Laravel"],
     liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/sitama_mobile",
@@ -29,7 +29,7 @@ const projectsData = [
     title: "Portfolio Blog",
     description:
       "Website portfolio dan blog personal dengan CMS sederhana untuk nulis artikel.",
-    image: "https://placehold.co/600x400/1a1a1a/6366f1?text=PORTOFOLIO",
+    image: "https://placehold.co/600x400/141414/e60012?text=PORTOFOLIO",
     tags: ["React", "Node.js", "MongoDB", "Tailwind", "JavaScript"],
     liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/Portofolio",
@@ -40,7 +40,7 @@ const projectsData = [
     title: "LYNX",
     description:
       "Game metroidvania dengan mekanisme dan jalan cerita sederhana dan melawan musuh dan boss yang menantang, dibangun menggunakan Unity dan C#.",
-    image: "https://placehold.co/600x400/1a1a1a/8b5cf6?text=LYNX",
+    image: "https://placehold.co/600x400/141414/e60012?text=LYNX",
     tags: ["Unity", "C#"],
     liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/LYNX",
@@ -51,7 +51,7 @@ const projectsData = [
     title: "Pilah Sampah Game",
     description:
       "Game interaktif dengan mekanisme permainan pilah sampah sederhana, dibangun menggunakan Unity dan C#.",
-    image: "https://placehold.co/600x400/1a1a1a/8b5cf6?text=PILAH SAMPAH",
+    image: "https://placehold.co/600x400/141414/e60012?text=PILAH SAMPAH",
     tags: ["Unity", "C#"],
     liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/Game-Pilah-Sampah",
@@ -62,7 +62,7 @@ const projectsData = [
     title: "Hockey Game",
     description:
       "Game interaktif dengan mekanisme permainan hockey sederhana, dibangun menggunakan Unity dan C#.",
-    image: "https://placehold.co/600x400/1a1a1a/8b5cf6?text=HOCKEY GAME",
+    image: "https://placehold.co/600x400/141414/e60012?text=HOCKEY GAME",
     tags: ["Unity", "C#"],
     liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/hockeyGame",
@@ -73,7 +73,7 @@ const projectsData = [
     title: "Face Detection",
     description:
       "Dashboard deteksi wajah menggunakan OpenCV dan Python.",
-    image: "https://placehold.co/600x400/1a1a1a/8b5cf6?text=FACE DETECTION",
+    image: "https://placehold.co/600x400/141414/e60012?text=FACE DETECTION",
     tags: ["Python", "OpenCV"],
     liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/Face_detection",
@@ -84,7 +84,7 @@ const projectsData = [
     title: "Deteksi Parkir",
     description:
       "Dashboard deteksi parkir otomatis dengan pengenalan kendaraan menggunakan OpenCV.",
-    image: "https://placehold.co/600x400/1a1a1a/8b5cf6?text=DETEKSI PARKIR",
+    image: "https://placehold.co/600x400/141414/e60012?text=DETEKSI PARKIR",
     tags: ["Python", "OpenCV"],
     liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/Deteksi_Parkir",
@@ -105,12 +105,13 @@ export default function Projects() {
     <div className="max-w-6xl mx-auto px-6 pt-32 pb-20">
 
       <div className="mb-12 animate-slide-up">
-        <h1 className="text-4xl font-bold mb-4">
-          My <span className="gradient-text">Projects</span>
+        <h1 className="p5-title text-4xl mb-4 text-fg">
+          My <span className="text-accent">Projects</span>
         </h1>
-        <p className="text-gray-400">
+        <p className="text-muted">
           Kumpulan project yang pernah saya kerjakan.
         </p>
+        <div className="p5-divider w-24 mt-4" />
       </div>
 
       <div className="flex flex-wrap gap-2 mb-10">
@@ -118,13 +119,11 @@ export default function Projects() {
           <button
             key={tag}
             onClick={() => setActiveFilter(tag)}
-            className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
-              activeFilter === tag
-                ? 'bg-accent-primary text-white'
-                : 'bg-dark-800 text-gray-400 border border-dark-700 hover:border-accent-primary/50'
+            className={`p5-btn px-4 py-1.5 text-[11px] ${
+              activeFilter === tag ? 'p5-btn-solid' : ''
             }`}
           >
-            {tag}
+            <span className="p5-label">{tag}</span>
           </button>
         ))}
       </div>
@@ -136,7 +135,7 @@ export default function Projects() {
       </div>
 
       {filtered.length === 0 && (
-        <div className="text-center py-20 text-gray-500">
+        <div className="text-center py-20 text-muted">
           Tidak ada project dengan teknologi ini.
         </div>
       )}
@@ -147,51 +146,48 @@ export default function Projects() {
 function ProjectCard({ project, index }) {
   return (
     <div
-      className="card group flex flex-col animate-slide-up"
+      className="card group flex flex-col animate-slide-up hover:border-accent hover:-translate-y-1"
       style={{ animationDelay: `${index * 0.1}s` }}
     >
-      <div className="relative overflow-hidden rounded-lg mb-4">
+      <div className="relative overflow-hidden rounded-md mb-4">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-48 object-cover border border-line transition-transform duration-500 group-hover:scale-105"
         />
-        <span className={`absolute top-3 right-3 text-xs px-2.5 py-1 rounded-full font-medium ${
+        <span className={`absolute top-3 right-3 text-xs px-2.5 py-1 font-display ${
           project.status === 'Completed'
-            ? 'bg-green-500/20 text-green-400 border border-green-500/30'
-            : 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
+            ? 'bg-accent text-white'
+            : 'bg-fg text-base'
         }`}>
           {project.status}
         </span>
       </div>
 
       <div className="flex flex-col flex-grow">
-        <h3 className="text-xl font-semibold mb-2 group-hover:text-accent-primary transition-colors">
+        <h3 className="p5-heading text-lg mb-2 text-fg group-hover:text-accent transition-colors">
           {project.title}
         </h3>
 
-        <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
+        <p className="text-muted text-sm leading-relaxed mb-4 flex-grow">
           {project.description}
         </p>
 
         <div className="flex flex-wrap gap-2 mb-5">
           {project.tags.map(tag => (
-            <span
-              key={tag}
-              className="text-xs bg-accent-primary/10 text-accent-primary px-2.5 py-1 rounded-full border border-accent-primary/20"
-            >
+            <span key={tag} className="chip">
               {tag}
             </span>
           ))}
         </div>
 
-        <div className="mt-auto">        
-            <a href={project.githubUrl}
+        <div className="mt-auto">
+          <a href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-outline text-sm flex-1 text-center"
+            className="p5-btn w-full px-4 py-2.5 text-xs"
           >
-            GitHub
+            <span className="p5-label">GitHub</span>
           </a>
         </div>
       </div>

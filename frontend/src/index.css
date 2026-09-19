@@ -1,5 +1,5 @@
 /* frontend/src/index.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,43 +7,313 @@
 
 @layer base {
   body {
-    @apply bg-dark-900 text-gray-100 font-sans;
-    background-image: 
-      radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+    @apply bg-base text-fg font-sans antialiased;
     min-height: 100vh;
   }
 
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 10px;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-dark-900;
+    @apply bg-base;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-accent-primary rounded-full;
+    @apply bg-accent rounded-full border-2 border-base;
   }
 }
 
 @layer components {
   .gradient-text {
-    @apply bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent;
+    @apply text-fg;
   }
-  
+
+  /* Judul khas Persona 5: tebal, miring, hard shadow */
+  .p5-title {
+    font-family: theme(fontFamily.display);
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    transform: skewX(-4deg);
+    text-shadow: 0.05em 0.05em 0 rgba(230, 0, 18, 0.85);
+  }
+
+  /* Sub-judul/kartu: miring tanpa uppercase */
+  .p5-heading {
+    font-family: theme(fontFamily.display);
+    font-style: italic;
+    letter-spacing: 0.01em;
+    transform: skewX(-3deg);
+    text-shadow: 0.04em 0.04em 0 rgba(230, 0, 18, 0.7);
+  }
+
+  /* Pembatas garis miring merah-hitam */
+  .p5-divider {
+    height: 6px;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      #e60012 0 12px,
+      #0a0a0a 12px 24px
+    );
+  }
+
+  /* Percikan tinta dekoratif */
+  .splatter {
+    position: absolute;
+    pointer-events: none;
+    filter: url(#p5-rough);
+  }
+
   .card {
-    @apply bg-dark-800 border border-dark-700 rounded-xl p-6 
-           hover:border-accent-primary/30 transition-all duration-300;
+    @apply bg-surface border border-line rounded-lg p-6 transition-all duration-300;
   }
-  
-  .btn-primary {
-    @apply bg-accent-primary hover:bg-accent-primary/80 text-white 
-           px-6 py-2.5 rounded-lg font-medium transition-all duration-200
-           hover:shadow-lg hover:shadow-accent-primary/25;
+
+  .chip {
+    @apply inline-flex items-center text-xs px-2.5 py-1 rounded-sm border border-line bg-raised text-muted;
   }
-  
-  .btn-outline {
-    @apply border border-accent-primary/50 hover:border-accent-primary 
-           text-accent-primary px-6 py-2.5 rounded-lg font-medium 
-           transition-all duration-200 hover:bg-accent-primary/10;
+
+  /* ---------- Tekstur khas Persona 5 ---------- */
+  .halftone-bg {
+    background-image:
+      radial-gradient(rgba(245, 245, 245, 0.07) 1px, transparent 1.5px),
+      repeating-linear-gradient(
+        45deg,
+        transparent 0 24px,
+        rgba(230, 0, 18, 0.06) 24px 25px
+      );
+    background-size: 14px 14px, auto;
+  }
+  .halftone {
+    background-image: radial-gradient(currentColor 1px, transparent 1.5px);
+    background-size: 12px 12px;
+  }
+  .speed-lines {
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent 0 18px,
+      rgba(230, 0, 18, 0.35) 18px 20px
+    );
+  }
+  .p5-shadow {
+    text-shadow: 4px 4px 0 rgba(230, 0, 18, 0.9);
+  }
+
+  /* ---------- Tombol Persona 5 ---------- */
+  .p5-btn {
+    @apply relative isolate overflow-hidden inline-flex items-center justify-center;
+    font-family: theme(fontFamily.display);
+    font-style: italic;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #f5f5f5;
+    border: 2px solid #f5f5f5;
+    transform: skewX(-6deg);
+    transition: transform 0.22s cubic-bezier(0.2, 1.4, 0.3, 1),
+      box-shadow 0.22s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .p5-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: -15%;
+    background: #e60012;
+    clip-path: polygon(
+      0 0,
+      88% 0, 100% 10%, 88% 20%, 100% 30%, 88% 40%, 100% 50%,
+      88% 60%, 100% 70%, 88% 80%, 100% 90%, 88% 100%, 0 100%
+    );
+    filter: url(#p5-rough);
+    transform: translateX(-100%);
+    transition: transform 0.38s cubic-bezier(0.2, 1.2, 0.3, 1);
+    z-index: 0;
+  }
+  .p5-btn:hover,
+  .p5-btn:focus-visible {
+    color: #ffffff;
+    transform: skewX(-6deg) translate(-3px, -3px) rotate(-1deg) scale(1.04);
+    box-shadow: 5px 5px 0 0 #f5f5f5;
+  }
+  .p5-btn:hover::before,
+  .p5-btn:focus-visible::before {
+    transform: translateX(0);
+  }
+  .p5-btn:active {
+    transform: skewX(-6deg) translate(2px, 2px) scale(0.98);
+    box-shadow: 1px 1px 0 0 #f5f5f5;
+  }
+  .p5-label {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+  }
+
+  /* Varian tombol solid merah */
+  .p5-btn-solid {
+    background: #e60012;
+    border-color: #f5f5f5;
+  }
+  .p5-btn-solid::before {
+    background: #f5f5f5;
+  }
+  .p5-btn-solid:hover,
+  .p5-btn-solid:focus-visible {
+    color: #0a0a0a;
+    box-shadow: 5px 5px 0 0 #e60012;
+  }
+  .p5-btn-solid:active {
+    box-shadow: 1px 1px 0 0 #e60012;
+  }
+
+  /* ---------- Kartu Persona 5 (elemen yang benar-benar link) ---------- */
+  .p5-card {
+    @apply relative overflow-hidden isolate;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .p5-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: -20%;
+    background: #e60012;
+    clip-path: polygon(
+      0 0,
+      86% 0, 100% 12%, 86% 24%, 100% 36%, 86% 48%, 100% 60%,
+      86% 72%, 100% 84%, 86% 96%, 86% 100%, 0 100%
+    );
+    filter: url(#p5-rough);
+    transform: translateX(-100%);
+    transition: transform 0.45s cubic-bezier(0.2, 1.2, 0.3, 1);
+    z-index: 0;
+  }
+  .p5-card:hover,
+  .p5-card:focus-within {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 0 #f5f5f5;
+    border-color: #e60012;
+  }
+  .p5-card:hover::before,
+  .p5-card:focus-within::before {
+    transform: translateX(0);
+  }
+  .p5-card > .p5-content {
+    @apply relative z-10 transition-colors duration-300;
+  }
+  .p5-card:hover > .p5-content,
+  .p5-card:focus-within > .p5-content {
+    color: #ffffff;
+  }
+  .p5-card:hover > .p5-content :is(h1, h2, h3, h4, h5, p, span, time, a),
+  .p5-card:focus-within > .p5-content :is(h1, h2, h3, h4, h5, p, span, time, a) {
+    color: inherit;
+  }
+  .p5-card:hover > .p5-content .chip,
+  .p5-card:focus-within > .p5-content .chip {
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+  }
+  .p5-card:hover > .p5-content .icon-box,
+  .p5-card:focus-within > .p5-content .icon-box {
+    border-color: rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+  }
+
+  /* ---------- Konten markdown blog ---------- */
+  .markdown {
+    @apply text-muted leading-relaxed;
+  }
+  .markdown h1 {
+    @apply text-3xl font-bold text-fg mt-10 mb-4;
+  }
+  .markdown h2 {
+    @apply text-2xl font-bold text-fg mt-8 mb-3;
+  }
+  .markdown h3 {
+    @apply text-xl font-semibold text-fg mt-6 mb-3;
+  }
+  .markdown p {
+    @apply mb-4;
+  }
+  .markdown ul {
+    @apply list-disc pl-6 mb-4 space-y-1;
+  }
+  .markdown ol {
+    @apply list-decimal pl-6 mb-4 space-y-1;
+  }
+  .markdown a {
+    @apply text-accent underline underline-offset-2;
+  }
+  .markdown code {
+    @apply font-mono text-sm bg-raised text-accent px-1.5 py-0.5 rounded;
+  }
+  .markdown pre {
+    @apply bg-surface border border-line rounded-lg p-4 overflow-x-auto mb-4;
+  }
+  .markdown pre code {
+    @apply bg-transparent p-0;
+  }
+  .markdown blockquote {
+    @apply border-l-4 border-accent pl-4 italic text-muted my-6;
+  }
+  .markdown img {
+    @apply rounded-lg my-6;
+  }
+  .markdown hr {
+    @apply border-line my-8;
+  }
+
+  /* ---------- Page-load cut-in Persona 5 ---------- */
+  .p5-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    overflow: hidden;
+    animation: p5Fade 1.35s ease forwards;
+  }
+  .p5-intro-panel {
+    position: absolute;
+    top: -12%;
+    bottom: -12%;
+    width: 55%;
+    animation: p5Sweep 1.05s cubic-bezier(0.7, 0, 0.2, 1) forwards;
+  }
+}
+
+@keyframes p5Sweep {
+  0% {
+    transform: translateX(-140%) skewX(-12deg);
+  }
+  42% {
+    transform: translateX(0) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(140%) skewX(-12deg);
+  }
+}
+
+@keyframes p5Fade {
+  0%,
+  68% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .p5-btn,
+  .p5-btn::before,
+  .p5-card,
+  .p5-card::before {
+    transition: none;
+  }
+  .p5-intro {
+    display: none;
   }
 }

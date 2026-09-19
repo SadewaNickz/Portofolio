@@ -35,18 +35,19 @@ export default function Experience() {
   return (
     <div className="max-w-4xl mx-auto px-6 pt-32 pb-20">
       <div className="mb-12 animate-slide-up">
-        <h1 className="text-4xl font-bold mb-4">
-          Work <span className="gradient-text">Experience</span>
+        <h1 className="p5-title text-4xl mb-4 text-fg">
+          Work <span className="text-accent">Experience</span>
         </h1>
-        <p className="text-gray-400">
+        <p className="text-muted">
           Perjalanan karir saya di dunia development.
         </p>
+        <div className="p5-divider w-24 mt-4" />
       </div>
 
       {/* Timeline */}
       <div className="relative">
         {/* Garis timeline */}
-        <div className="absolute left-0 top-0 bottom-0 w-px bg-dark-700 ml-4" />
+        <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-line ml-4" />
 
         <div className="space-y-10">
           {sortedExperiences.map((exp, index) => (
@@ -57,36 +58,33 @@ export default function Experience() {
             >
               {/* Dot timeline */}
               <div
-                className="absolute left-0 top-1 w-9 h-9 bg-dark-800 border-2 border-accent-primary 
+                className="absolute left-0 top-1 w-9 h-9 bg-base border-2 border-accent 
                               rounded-full flex items-center justify-center"
               >
-                <div className="w-2 h-2 bg-accent-primary rounded-full" />
+                <div className="w-2 h-2 bg-accent rounded-full" />
               </div>
 
               <div className="card">
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3">
                   <div>
-                    <h2 className="text-xl font-semibold">{exp.role}</h2>
-                    <p className="text-accent-primary font-medium">
+                    <h2 className="p5-heading text-lg text-fg">{exp.role}</h2>
+                    <p className="text-accent font-medium">
                       {exp.company}
                     </p>
                   </div>
-                  <span className="text-gray-500 text-sm whitespace-nowrap">
+                  <span className="text-muted text-sm whitespace-nowrap">
                     {exp.period}
                   </span>
                 </div>
 
-                <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                <p className="text-muted text-sm leading-relaxed mb-4">
                   {exp.description}
                 </p>
 
                 {/* Tech tags */}
                 <div className="flex flex-wrap gap-2 mb-5">
                   {exp.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs bg-dark-700 text-gray-300 px-3 py-1 rounded-full"
-                    >
+                    <span key={t} className="chip">
                       {t}
                     </span>
                   ))}
@@ -96,11 +94,11 @@ export default function Experience() {
                 {exp.blogSlug && (
                   <Link
                     to={`/blog/${exp.blogSlug}`}
-                    className="inline-flex items-center gap-2 text-sm text-accent-primary 
-                               hover:text-white border border-accent-primary/30 hover:border-accent-primary
-                               px-4 py-2 rounded-lg transition-all duration-200 hover:bg-accent-primary/10"
+                    className="p5-btn px-4 py-2 text-xs"
                   >
-                    📝 Baca cerita pengalaman ini →
+                    <span className="p5-label">
+                      📝 Baca cerita pengalaman ini →
+                    </span>
                   </Link>
                 )}
               </div>
