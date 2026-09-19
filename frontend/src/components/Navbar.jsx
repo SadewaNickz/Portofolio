@@ -25,7 +25,7 @@ export default function Navbar() {
     const show = () => {
       setVisible(true);
       clearTimeout(timer);
-      timer = setTimeout(() => setVisible(false), 500);
+      timer = setTimeout(() => setVisible(false), 1500);
     };
 
     // Tampilkan awalnya, mulai timer

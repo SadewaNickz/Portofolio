@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Splatter from "../components/Splatter";
 import ProfileCard from "../components/ProfileCard";
 import GitHubContribution from "../components/GitHubContribution";
+import DiagonalPhotoGrid from "../components/DiagonalPhotoGrid";
 
 const marqueeItems = [
   "Full Stack Developer",
@@ -16,6 +17,8 @@ const marqueeItems = [
 export default function Home() {
   return (
     <div className="min-h-screen w-full flex items-center justify-center px-6 pt-24 pb-16 relative overflow-hidden">
+      {/* Background grid foto diagonal */}
+      <DiagonalPhotoGrid />
       {/* Splatter dekoratif */}
       <Splatter
         className="w-28 h-28 -top-4 -left-2 md:w-44 md:h-44"
