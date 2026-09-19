@@ -1,6 +1,7 @@
 // frontend/src/pages/Home.jsx
 import { Link } from "react-router-dom";
 import Splatter from "../components/Splatter";
+import ProfileCard from "../components/ProfileCard";
 import GitHubContribution from "../components/GitHubContribution";
 
 const marqueeItems = [
@@ -40,10 +41,15 @@ export default function Home() {
         {/* Badge */}
         <div
           className="inline-flex items-center gap-2 bg-surface border-2 border-accent
-                        px-4 py-1.5 mb-8 -rotate-1"
+                        px-4 py-1.5 mb-6 -rotate-1"
         >
           <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
           <span className="text-sm text-muted">Need an internship please </span>
+        </div>
+
+        {/* Card foto profil */}
+        <div className="flex justify-center mb-8">
+          <ProfileCard />
         </div>
 
         {/* Heading */}
