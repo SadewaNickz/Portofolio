@@ -19,7 +19,7 @@ export default function DiagonalPhotoGrid() {
     <div
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 overflow-hidden z-0"
-      style={{ opacity: 0.2 }}
+      style={{ opacity: 0.15 }}
     >
       <div
         className="absolute"
