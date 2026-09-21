@@ -28,7 +28,6 @@ const projectsData = [
     mediaUrl: "/projects/cetaku.png",
     fallbackImage: "https://placehold.co/600x400/141414/e60012?text=CETAKU",
     tags: ["JavaScript", "Tailwind", "PHP", "Midtrans", "MySQL", "Laravel"],
-    liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/Cetaku",
     status: "Completed",
   },
@@ -41,7 +40,6 @@ const projectsData = [
     mediaUrl: "/projects/sitama.png",
     fallbackImage: "https://placehold.co/600x400/141414/e60012?text=SITAMA",
     tags: ["PHP", "Flutter", "MySQL", "Tailwind", "Laravel"],
-    liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/sitama_mobile",
     status: "Completed",
   },
@@ -54,7 +52,6 @@ const projectsData = [
     mediaUrl: "/projects/portfolio.png",
     fallbackImage: "https://placehold.co/600x400/141414/e60012?text=PORTOFOLIO",
     tags: ["React", "Node.js", "MongoDB", "Tailwind", "JavaScript"],
-    liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/Portofolio",
     status: "On Progress",
   },
@@ -68,7 +65,6 @@ const projectsData = [
     mediaUrl: "/projects/game2.jpg",
     fallbackImage: "https://placehold.co/600x400/141414/e60012?text=LYNX",
     tags: ["Unity", "C#"],
-    liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/LYNX",
     status: "Completed",
   },
@@ -83,7 +79,6 @@ const projectsData = [
     thumbnail: "/projects/game2.jpg",
     fallbackImage: "https://placehold.co/600x400/141414/e60012?text=PILAH+SAMPAH",
     tags: ["Unity", "C#"],
-    liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/Game-Pilah-Sampah",
     status: "Completed",
   },
@@ -96,7 +91,6 @@ const projectsData = [
     mediaUrl: "/projects/game2.jpg",
     fallbackImage: "https://placehold.co/600x400/141414/e60012?text=HOCKEY+GAME",
     tags: ["Unity", "C#"],
-    liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/hockeyGame",
     status: "Completed",
   },
@@ -109,7 +103,6 @@ const projectsData = [
     mediaUrl: "/projects/face-detection.png",
     fallbackImage: "https://placehold.co/600x400/141414/e60012?text=FACE+DETECTION",
     tags: ["Python", "OpenCV"],
-    liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/Face_detection",
     status: "Completed",
   },
@@ -122,7 +115,6 @@ const projectsData = [
     mediaUrl: "/projects/deteksi-parkir.png",
     fallbackImage: "https://placehold.co/600x400/141414/e60012?text=DETEKSI+PARKIR",
     tags: ["Python", "OpenCV"],
-    liveUrl: "https://project-demo.com",
     githubUrl: "https://github.com/SadewaNickz/Deteksi_Parkir",
     status: "Completed",
   },
@@ -295,7 +287,7 @@ function ProjectCard({ project, index, onOpenPreview }) {
         {(mediaType === 'video' || mediaType === 'youtube') && (
           <span className="absolute bottom-2.5 left-2.5 z-10 bg-base/80 backdrop-blur-sm border border-line text-[10px] font-mono text-accent px-2 py-0.5 rounded flex items-center gap-1.5 shadow">
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            {mediaType === 'youtube' ? 'YOUTUBE' : 'VIDEO DEMO'}
+            {mediaType === 'youtube' ? 'YOUTUBE' : 'VIDEO'}
           </span>
         )}
 
@@ -340,22 +332,12 @@ function ProjectCard({ project, index, onOpenPreview }) {
         </div>
 
         {/* Tombol Aksi */}
-        <div className="mt-auto flex gap-2">
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p5-btn p5-btn-solid flex-1 px-3 py-2.5 text-xs text-center"
-            >
-              <span className="p5-label">Demo</span>
-            </a>
-          )}
+        <div className="mt-auto">
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`p5-btn ${project.liveUrl ? 'flex-1' : 'w-full'} px-3 py-2.5 text-xs text-center`}
+            className="p5-btn w-full px-4 py-2.5 text-xs text-center"
           >
             <span className="p5-label">GitHub</span>
           </a>
@@ -443,24 +425,14 @@ function MediaModal({ project, onClose }) {
           </div>
 
           <div className="flex flex-wrap gap-3 pt-3 border-t border-line">
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p5-btn p5-btn-solid px-4 py-2 text-xs"
-              >
-                <span className="p5-label">🚀 Kunjungi Demo</span>
-              </a>
-            )}
             {project.githubUrl && (
               <a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p5-btn px-4 py-2 text-xs"
+                className="p5-btn w-full sm:w-auto px-5 py-2.5 text-xs text-center"
               >
-                <span className="p5-label">Lihat GitHub</span>
+                <span className="p5-label">Lihat di GitHub</span>
               </a>
             )}
           </div>
