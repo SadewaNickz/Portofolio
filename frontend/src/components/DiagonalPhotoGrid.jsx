@@ -1,16 +1,10 @@
 // frontend/src/components/DiagonalPhotoGrid.jsx
 // Background grid diagonal dengan foto project yang berjalan sesuai diagonal, looping infinite
+// Menggunakan gambar dari data project yang sama dengan halaman Projects
 
-const projectImages = [
-  "https://placehold.co/300x200/141414/e60012?text=CETAKU",
-  "https://placehold.co/300x200/141414/e60012?text=SITAMA",
-  "https://placehold.co/300x200/141414/e60012?text=PORTOFOLIO",
-  "https://placehold.co/300x200/141414/e60012?text=LYNX",
-  "https://placehold.co/300x200/141414/e60012?text=PILAH+SAMPAH",
-  "https://placehold.co/300x200/141414/e60012?text=HOCKEY",
-  "https://placehold.co/300x200/141414/e60012?text=FACE+DETECT",
-  "https://placehold.co/300x200/141414/e60012?text=DETEKSI+PARKIR",
-];
+import { getProjectImages } from "../data/projectsData";
+
+const projectImages = getProjectImages();
 
 const ROWS = 40;
 const COLS = 10;
