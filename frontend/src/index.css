@@ -27,6 +27,22 @@
   ::-webkit-scrollbar-thumb {
     @apply bg-accent rounded-full border-2 border-base;
   }
+
+  .subtle-scrollbar::-webkit-scrollbar {
+    height: 4px;
+  }
+  .subtle-scrollbar::-webkit-scrollbar-track {
+    background: #141414;
+    border-radius: 2px;
+  }
+  .subtle-scrollbar::-webkit-scrollbar-thumb {
+    background: #4a0c0e;
+    border: none;
+    border-radius: 2px;
+  }
+  .subtle-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #e60012;
+  }
 }
 
 @layer components {
